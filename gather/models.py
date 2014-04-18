@@ -109,7 +109,7 @@ class Event(models.Model):
 	title = models.CharField(max_length=300)
 	slug = models.CharField(max_length=60, help_text="This will be auto-suggested based on the event title, but feel free to customize it.", unique=True)
 	description = models.TextField(help_text="Basic HTML markup is supported for your event description.")
-	image = models.ImageField(upload_to=event_img_upload_to)
+	image = models.ImageField(upload_to=event_img_upload_to, blank=True)
 	attendees = models.ManyToManyField(User, related_name="events_attending", blank=True, null=True)  
 	notifications = models.BooleanField(default = True)
 	# where, site, place, venue
